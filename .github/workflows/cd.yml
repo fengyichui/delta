@@ -9,6 +9,8 @@ jobs:
   publish:
     name: Publishing for ${{ matrix.job.os }} - ${{ matrix.job.target }}
     runs-on: ${{ matrix.job.os }}
+    permissions:
+      contents: write
     strategy:
       matrix:
         job:
@@ -68,5 +70,3 @@ jobs:
             git-delta*.deb
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        permissions:
-          contents: write
